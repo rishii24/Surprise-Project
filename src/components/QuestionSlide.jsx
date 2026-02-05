@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const QuestionSlide = ({ question, gif, onYes, onNo }) => {
+const QuestionSlide = ({ question, gif, gif2, onYes, onNo }) => {
   const [shake, setShake] = useState(0);
 
   const handleNo = () => {
@@ -11,7 +11,7 @@ const QuestionSlide = ({ question, gif, onYes, onNo }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center p-6 w-full max-w-2xl mx-auto">
+    <div className="flex flex-col items-center justify-center h-full text-center p-6 w-full max-w-3xl mx-auto">
       <AnimatePresence mode="wait">
         <motion.div
           key={shake}
@@ -20,12 +20,17 @@ const QuestionSlide = ({ question, gif, onYes, onNo }) => {
           transition={{ duration: 0.4 }}
           className="w-full flex flex-col items-center"
         >
-          <div className="mb-8">
+          <div className="flex items-center gap-x-2 mb-8">
             <img 
               src={gif || "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../placeholder.gif"} 
               alt="Cute decorative gif" 
               className="h-48 md:h-64 object-contain rounded-2xl drop-shadow-md"
             />
+            {gif2 && <img 
+              src={gif2 || "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../placeholder.gif"} 
+              alt="Cute decorative gif" 
+              className="h-48 md:h-64 object-contain rounded-2xl drop-shadow-md"
+            />}
           </div>
 
           <motion.h2
@@ -43,7 +48,7 @@ const QuestionSlide = ({ question, gif, onYes, onNo }) => {
               onClick={onYes}
               className="bg-green-500 text-white py-3 px-10 rounded-full text-lg font-bold shadow-lg hover:bg-green-600 transition-colors cursor-pointer"
             >
-              YES
+              Haaaaan 😋❤️
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -51,7 +56,7 @@ const QuestionSlide = ({ question, gif, onYes, onNo }) => {
               onClick={handleNo}
               className="bg-red-400 text-white py-3 px-10 rounded-full text-lg font-bold shadow-lg hover:bg-red-500 transition-colors cursor-pointer"
             >
-              NO
+              Nahinnnnnn
             </motion.button>
           </div>
         </motion.div>
